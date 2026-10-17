@@ -1,6 +1,7 @@
 {
-  "versionCode": 4,
-  "versionName": "0.4.0",
-  "downloadUrl": "https://github.com/Akhilesdf6/zerobat-download/releases/download/v0.4.0-test/ZeroBat-Meditation-v0.4.0-debug.apk",
-  "releaseNotes": "In-app update support."
+  "versionCode": 5,
+  "versionName": "0.4.1",
+  "apkUrl": "https://github.com/Akhilesdf6/zerobat-download/releases/download/v0.4.1-test/ZeroBat-Meditation-v0.4.1-debug.apk",
+  "downloadUrl": "https://github.com/Akhilesdf6/zerobat-download/releases/download/v0.4.1-test/ZeroBat-Meditation-v0.4.1-debug.apk",
+  "releaseNotes": "Navy and Teal theme, 2x2 duration buttons and updater fixes."
 }
