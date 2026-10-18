@@ -1,0 +1,89 @@
+name: ZeroBat Release Sync
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zerobat-release-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Update version.json
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import urllib.request
+          from pathlib import Path
+
+          repo = os.environ["GH_REPOSITORY"]
+          url = f"https://api.github.com/repos/{repo}/releases/latest"
+
+          req = urllib.request.Request(
+              url,
+              headers={
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Accept": "application/vnd.github+json",
+                  "User-Agent": "ZeroBat-Release-Sync"
+              }
+          )
+
+          with urllib.request.urlopen(req) as response:
+              release = json.load(response)
+
+          apks = [
+              asset for asset in release.get("assets", [])
+              if asset["name"].lower().endswith(".apk")
+          ]
+
+          if len(apks) != 1:
+              raise SystemExit(
+                  "Expected exactly one APK in latest release"
+              )
+
+          path = Path("version.json")
+          data = json.loads(path.read_text())
+
+          data["versionName"] = release["tag_name"].lstrip("v")
+          data["apkUrl"] = apks[0]["browser_download_url"]
+          data["downloadUrl"] = apks[0]["browser_download_url"]
+          data["releaseNotes"] = release.get("body") or ""
+
+          path.write_text(
+              json.dumps(data, indent=2, ensure_ascii=False) + "\n"
+          )
+
+          print("Synced", data["versionName"])
+          PY
+
+      - name: Commit version metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add version.json
+
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+          else
+            git commit -m "Sync latest ZeroBat release metadata"
+            git push origin HEAD:main
+          fi
