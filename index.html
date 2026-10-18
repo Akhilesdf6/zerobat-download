@@ -2,69 +2,439 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#14111f">
-<title>ZeroBat Meditation — Download</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#100b20">
+<meta name="description" content="Download ZeroBat Meditation for Android. Meditation, breathing exercises and calming tools in Malayalam and English.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZeroBat — Meditation & Calm">
+<meta property="og:description" content="Download ZeroBat for Android. Breathe, meditate and relax.">
+<meta property="og:url" content="https://akhilesdf6.github.io/zerobat-download/">
+<title>ZeroBat — Download & Updates</title>
+
 <style>
+:root{
+  --bg:#100b20;
+  --panel:#211935;
+  --purple:#ae8bff;
+  --light:#eee9ff;
+  --muted:#b5abc9;
+  --border:rgba(190,164,255,.18);
+}
 *{box-sizing:border-box}
-body{margin:0;background:#14111f;color:#fff;
-font-family:system-ui,sans-serif}
-main{max-width:720px;margin:auto;padding:55px 20px;
-text-align:center}
-.logo{font-size:65px}
-h1{font-size:45px;color:#a78bfa;margin:12px}
-p{color:#c9c2d7;line-height:1.7}
-.card{background:#252036;padding:28px 20px;
-border-radius:24px;margin:30px 0;
-border:1px solid #453b59}
-.btn{display:inline-block;background:#a78bfa;
-color:#171123;text-decoration:none;font-weight:bold;
-padding:17px 30px;border-radius:14px;margin:16px}
-.small{font-size:13px}
-footer{margin-top:45px;color:#a9a1b7}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--light);
+  font-family:system-ui,-apple-system,sans-serif;
+  line-height:1.6;
+}
+body:before{
+  content:"";
+  position:absolute;
+  top:-170px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(100%,650px);
+  height:570px;
+  background:radial-gradient(ellipse,rgba(134,82,255,.25),transparent 68%);
+  pointer-events:none;
+}
+a{color:inherit}
+.container{
+  position:relative;
+  max-width:850px;
+  padding:0 20px;
+  margin:auto;
+}
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:23px 0;
+}
+.brand{
+  font-weight:800;
+  font-size:23px;
+  letter-spacing:-.7px;
+}
+.brand span{color:var(--purple)}
+.navlink{
+  text-decoration:none;
+  font-size:13px;
+  color:#d6c6ff;
+  border:1px solid var(--border);
+  border-radius:30px;
+  padding:9px 14px;
+}
+.hero{
+  text-align:center;
+  padding:45px 0 28px;
+}
+.app-icon{
+  width:108px;
+  height:108px;
+  margin:auto;
+  border-radius:30px;
+  display:grid;
+  place-items:center;
+  font-size:54px;
+  background:linear-gradient(135deg,#7552c6,#3b245f);
+  border:1px solid #9874eb;
+  box-shadow:0 18px 60px rgba(127,78,255,.3);
+}
+.eyebrow{
+  display:inline-block;
+  margin-top:30px;
+  padding:7px 14px;
+  color:#dbcaff;
+  background:rgba(165,130,255,.12);
+  border:1px solid var(--border);
+  border-radius:30px;
+  font-size:12px;
+  font-weight:700;
+}
+h1{
+  font-size:clamp(39px,9vw,67px);
+  letter-spacing:-2px;
+  line-height:1.08;
+  margin:20px 0;
+}
+.gradient{
+  background:linear-gradient(90deg,#d6c4ff,#9470ff);
+  color:transparent;
+  background-clip:text;
+  -webkit-background-clip:text;
+}
+.subtitle{
+  max-width:540px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:16px;
+}
+.download-card{
+  background:linear-gradient(160deg,#2a2044,#1b152c);
+  border:1px solid rgba(185,154,255,.27);
+  border-radius:28px;
+  padding:28px 22px;
+  margin:34px auto;
+  max-width:550px;
+  box-shadow:0 20px 70px rgba(0,0,0,.18);
+}
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  color:#dacbff;
+}
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#a6f0c0;
+}
+.version{
+  font-size:29px;
+  font-weight:800;
+  margin:12px 0 4px;
+}
+.small{color:var(--muted);font-size:13px}
+.button{
+  display:block;
+  width:100%;
+  text-align:center;
+  text-decoration:none;
+  background:linear-gradient(135deg,#c5a8ff,#9670f7);
+  color:#180d31;
+  padding:18px 22px;
+  margin-top:22px;
+  border-radius:17px;
+  font-weight:800;
+  font-size:17px;
+  box-shadow:0 10px 28px rgba(142,95,245,.24);
+}
+.button:focus-visible,.navlink:focus-visible{
+  outline:3px solid white;
+  outline-offset:3px;
+}
+.secondary{
+  display:inline-block;
+  margin-top:16px;
+  color:#d7c5ff;
+  font-size:13px;
+  text-underline-offset:4px;
+}
+.warning{
+  margin-top:18px;
+  font-size:12px;
+  color:#d6c6e7;
+}
+.section{padding:30px 0}
+.section h2{
+  font-size:26px;
+  letter-spacing:-.6px;
+  margin:0 0 18px;
+}
+.features{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+.feature,.panel{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:21px;
+  padding:21px;
+}
+.feature-icon{font-size:29px}
+.feature h3{font-size:16px;margin:12px 0 5px}
+.feature p{
+  color:var(--muted);
+  font-size:13px;
+  margin:0;
+}
+.panel p{
+  color:var(--muted);
+  margin:8px 0;
+  overflow-wrap:anywhere;
+}
+.steps{
+  margin:0;
+  padding-left:23px;
+  color:#e3d9f4;
+}
+.steps li{padding:8px 0}
+.steps li::marker{color:var(--purple);font-weight:800}
+footer{
+  padding:40px 0 30px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+}
+footer a{color:#d4beff}
+@media(min-width:650px){
+  .features{grid-template-columns:repeat(4,1fr)}
+  .hero{padding-top:75px}
+}
+@media(max-width:370px){
+  .features{grid-template-columns:1fr}
+  h1{font-size:37px}
+}
 </style>
 </head>
+
 <body>
+<div class="container">
+
+<nav>
+  <div class="brand">✦ Zero<span>Bat</span></div>
+  <a class="navlink" href="#updates">What's New ↗</a>
+</nav>
+
 <main>
-<div class="logo">🧘</div>
-<h1>ZeroBat</h1>
-<h2>Meditate • Breathe • Relax</h2>
-<p>Beginner Meditation App<br>
-മലയാളം + English</p>
+<section class="hero">
+  <div class="app-icon" aria-label="Meditation">🧘</div>
+  <div class="eyebrow">✦ YOUR DAILY CALM COMPANION</div>
 
-<div class="card">
-<h2>ZeroBat Meditation v0.4.2</h2>
-<p>🌬️ Breathing Exercises<br>
-⏱️ Meditation Timer<br>
-🌐 Malayalam & English<br>
-📱 Offline Android App</p>
+  <h1>
+    Find your<br>
+    <span class="gradient">moment of calm.</span>
+  </h1>
 
-<a class="btn" id="download-apk"
-href="https://github.com/Akhilesdf6/zerobat-download/releases/latest">
-⬇ Download APK
-</a>
+  <p class="subtitle">
+    Breathe deeply. Meditate peacefully.
+    Relax at your own pace.<br>
+    മലയാളം + English
+  </p>
 
-<p class="small">Android 8.0+ • Free Test Version</p>
-<p class="small">Debug-signed testing APK.
-Not a production release.</p>
-</div>
+  <div class="download-card">
+    <div class="status">
+      <span class="dot"></span>
+      Android Test Version
+    </div>
 
-<footer>© ZeroBat • Beginner Meditation</footer>
+    <div class="version" id="version">
+      ZeroBat v0.6.0
+    </div>
+
+    <div class="small">
+      Free Android APK • Meditation & Breathing
+    </div>
+
+    <a
+      class="button"
+      id="download"
+      href="https://github.com/Akhilesdf6/zerobat-download/releases/download/v0.6.0/app-debug.apk"
+      rel="noopener"
+    >
+      ↓ Download for Android
+    </a>
+
+    <a
+      class="secondary"
+      href="https://github.com/Akhilesdf6/zerobat-download/releases"
+    >
+      View all releases →
+    </a>
+
+    <p class="warning">
+      ⚠️ Currently a debug-signed test APK,
+      not a production release.
+      Install only if you trust this test build.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <h2>Made for your peace ✨</h2>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">🌬️</div>
+      <h3>Breathing</h3>
+      <p>Simple guided breathing exercises.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🧘</div>
+      <h3>Meditation</h3>
+      <p>Take a quiet moment for yourself.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🌿</div>
+      <h3>Quick Calm</h3>
+      <p>Short activities for mindful pauses.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🌍</div>
+      <h3>Two Languages</h3>
+      <p>Malayalam and English support.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="updates">
+  <h2>What's New 🚀</h2>
+
+  <div class="panel">
+    <div class="status">
+      <span class="dot"></span>
+      Latest Release
+    </div>
+
+    <h3 id="release-title">Version 0.6.0</h3>
+
+    <p id="release-notes">
+      Quick Calm and 5-4-3-2-1 Grounding added.
+    </p>
+
+    <a
+      class="secondary"
+      href="https://github.com/Akhilesdf6/zerobat-download/releases/latest"
+    >
+      Release details →
+    </a>
+  </div>
+</section>
+
+<section class="section" id="install">
+  <h2>How to install & update 📱</h2>
+
+  <div class="panel">
+    <ol class="steps">
+      <li>Tap Download for Android.</li>
+      <li>Wait for the APK download to finish.</li>
+      <li>Open the downloaded APK.</li>
+      <li>Review Android's security prompts and install only if you trust the file.</li>
+      <li>For future updates, visit this page and download the latest compatible APK.</li>
+    </ol>
+
+    <p class="small">
+      മലയാളം: Download ബട്ടൺ അമർത്തി APK download ചെയ്യുക.
+      Android കാണിക്കുന്ന സുരക്ഷാ വിവരങ്ങൾ പരിശോധിച്ചശേഷം മാത്രം
+      install ചെയ്യുക. പുതിയ version ലഭിക്കുമ്പോൾ ഈ page വീണ്ടും
+      സന്ദർശിക്കാം.
+    </p>
+
+    <p class="small">
+      Note: Updates require a compatible package name and signing
+      certificate. Otherwise Android may not install the new APK
+      over an existing installation.
+    </p>
+  </div>
+</section>
 </main>
 
+<footer>
+  <div>✦ ZeroBat Meditation</div>
+  <p>Made for mindful moments.</p>
+  <a href="https://github.com/Akhilesdf6/zerobat-download/releases">
+    Downloads & Release History
+  </a>
+  <p>© <span id="year"></span> ZeroBat</p>
+</footer>
+
+</div>
+
 <script>
-fetch('./version.json', {cache: 'no-store'})
+"use strict";
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+const fallback =
+  "https://github.com/Akhilesdf6/zerobat-download/releases/latest";
+
+function safeApkUrl(value) {
+  try {
+    const url = new URL(value);
+    if (
+      url.protocol === "https:" &&
+      url.hostname === "github.com" &&
+      url.pathname.startsWith(
+        "/Akhilesdf6/zerobat-download/releases/download/"
+      ) &&
+      url.pathname.toLowerCase().endsWith(".apk")
+    ) {
+      return url.href;
+    }
+  } catch (error) {}
+  return fallback;
+}
+
+fetch("./version.json", {cache:"no-store"})
   .then(response => {
-    if (!response.ok) throw new Error('Metadata unavailable');
+    if (!response.ok) {
+      throw new Error("Version metadata unavailable");
+    }
     return response.json();
   })
   .then(data => {
-    if (!data.downloadUrl) throw new Error('Missing APK URL');
-    const link = document.getElementById('download-apk');
-    if (link) link.href = data.downloadUrl;
-  })
-  .catch(error => console.warn('Using fallback release page:', error));
-</script>
+    if (
+      typeof data.versionName === "string" &&
+      data.versionName.length < 40
+    ) {
+      document.getElementById("version").textContent =
+        "ZeroBat v" + data.versionName;
 
+      document.getElementById("release-title").textContent =
+        "Version " + data.versionName;
+    }
+
+    if (typeof data.releaseNotes === "string") {
+      document.getElementById("release-notes").textContent =
+        data.releaseNotes || "Maintenance update.";
+    }
+
+    document.getElementById("download").href =
+      safeApkUrl(data.downloadUrl || data.apkUrl);
+  })
+  .catch(error => {
+    console.warn("Using fallback download link:", error);
+  });
+</script>
 </body>
 </html>
