@@ -1,7 +1,7 @@
 {
   "versionCode": 10,
   "versionName": "0.7.0",
-  "apkUrl": "https://github.com/Akhilesdf6/zerobat-download/releases/download/v0.7.0/ZeroBat-v0.7.0-debug.apk",
-  "downloadUrl": "https://github.com/Akhilesdf6/zerobat-download/releases/download/v0.7.0/ZeroBat-v0.7.0-debug.apk",
+  "apkUrl": "https://github.com/Akhilesdf6/zerobat-download/releases/download/v0.7.0/app-debug.apk",
+  "downloadUrl": "https://github.com/Akhilesdf6/zerobat-download/releases/download/v0.7.0/app-debug.apk",
   "releaseNotes": "v0.7.0 Beta: Offline Mood Tracker, Daily Reminder, Nature Sounds screen and Malayalam Guided Meditation screen. Audio files for Nature Sounds and Guided Meditation are not yet included. Debug-signed beta build."
 }
