@@ -39,8 +39,8 @@ footer{margin-top:45px;color:#a9a1b7}
 🌐 Malayalam & English<br>
 📱 Offline Android App</p>
 
-<a class="btn"
-href="https://github.com/Akhilesdf6/zerobat-download/releases/download/v0.4.2-test/ZeroBat-Meditation-v0.4.2-debug.apk">
+<a class="btn" id="download-apk"
+href="https://github.com/Akhilesdf6/zerobat-download/releases/latest">
 ⬇ Download APK
 </a>
 
@@ -51,5 +51,20 @@ Not a production release.</p>
 
 <footer>© ZeroBat • Beginner Meditation</footer>
 </main>
+
+<script>
+fetch('./version.json', {cache: 'no-store'})
+  .then(response => {
+    if (!response.ok) throw new Error('Metadata unavailable');
+    return response.json();
+  })
+  .then(data => {
+    if (!data.downloadUrl) throw new Error('Missing APK URL');
+    const link = document.getElementById('download-apk');
+    if (link) link.href = data.downloadUrl;
+  })
+  .catch(error => console.warn('Using fallback release page:', error));
+</script>
+
 </body>
 </html>
